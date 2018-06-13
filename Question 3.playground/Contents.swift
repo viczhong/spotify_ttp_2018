@@ -17,15 +17,18 @@ import UIKit
 
 
 func changePossibilities(amount: Int, denominations: [Int]) -> Int {
+    // I think it's easier to check if it's from bigger to smaller coin sizes
     let sortedDenom = denominations.sorted { $0 > $1 }
+
     return findCoinCombos(amount: amount, denominations: sortedDenom)
 }
 
 func findCoinCombos(amount: Int, denominations: [Int], index: Int = 0) -> Int {
-    // if the amount is exactly 0 after the operations, we can count this as a valid combo
+    // Base cases
+    // If the amount is exactly 0 after the operations, we can count this as a valid combo
     guard amount != 0 else { return 1 }
 
-    // if amount is in the negative or we're out of coins to plug in, this isn't a valid combo
+    // If amount is in the negative or we're out of coins to plug in, this isn't a valid combo
     guard amount >= 0 && denominations.count != index else { return 0 }
 
     // uncomment to see check
@@ -39,8 +42,10 @@ func findCoinCombos(amount: Int, denominations: [Int], index: Int = 0) -> Int {
     // Continue breaking down the amount with next coin(s) in series once current coin is bigger than amount
     let nextCoin = findCoinCombos(amount: amount, denominations: denominations, index: index + 1)
 
+    // Recursion
     return firstCoin + nextCoin
 }
 
 changePossibilities(amount: 4, denominations: [1, 2, 3]) // returns 4
-changePossibilities(amount: 25, denominations: [1, 5, 10, 25]) // returns 13
+
+assert(changePossibilities(amount: 4, denominations: [1, 2, 3]) == 4)
