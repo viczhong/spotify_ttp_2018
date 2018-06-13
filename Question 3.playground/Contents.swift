@@ -20,27 +20,26 @@ func changePossibilities(amount: Int, denominations: [Int]) -> Int {
     // I think it's easier to check if it's from bigger to smaller coin sizes
     let sortedDenom = denominations.sorted { $0 > $1 }
 
-    return findCoinCombos(amount: amount, denominations: sortedDenom)
+    let combinations = findCoinCombos(amount: amount, denominations: sortedDenom)
+
+    print("\(combinations) Combinations of \(amount)")
+
+    return combinations
 }
 
-func findCoinCombos(amount: Int, denominations: [Int], index: Int = 0) -> Int {
+func findCoinCombos(amount: Int, denominations: [Int], current: [Int] = [], index: Int = 0) -> Int {
     // Base cases
     // If the amount is exactly 0 after the operations, we can count this as a valid combo
-    guard amount != 0 else { return 1 }
+    guard amount != 0 else { print(current); return 1 }
 
     // If amount is in the negative or we're out of coins to plug in, this isn't a valid combo
     guard amount >= 0 && denominations.count != index else { return 0 }
 
-    // uncomment to see check
-    //    if amount - denominations[index] >= 0 {
-    //        print("\(amount): \(denominations[index]) + \(amount - denominations[index])")
-    //    }
-
     // Start with first coin
-    let firstCoin = findCoinCombos(amount: amount - denominations[index], denominations: denominations, index: index)
+    let firstCoin = findCoinCombos(amount: amount - denominations[index], denominations: denominations, current: current + [denominations[index]], index: index)
 
     // Continue breaking down the amount with next coin(s) in series once current coin is bigger than amount
-    let nextCoin = findCoinCombos(amount: amount, denominations: denominations, index: index + 1)
+    let nextCoin = findCoinCombos(amount: amount, denominations: denominations, current: current, index: index + 1)
 
     // Recursion
     return firstCoin + nextCoin
