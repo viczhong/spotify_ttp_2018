@@ -28,8 +28,8 @@ func sortByStrings(s: String, t: String) -> String {
     return outputString
 }
 
-sortByStrings(s: "weather", t: "therapyw") // prints "theeraw"
-sortByStrings(s: "good", t: "odg") // prints "oodg"
+sortByStrings(s: "weather", t: "therapyw") // returns "theeraw"
+sortByStrings(s: "good", t: "odg") // returns "oodg"
 
 assert(sortByStrings(s: "weather", t: "therapyw") == "theeraw")
 assert(sortByStrings(s: "good", t: "odg") == "oodg")
