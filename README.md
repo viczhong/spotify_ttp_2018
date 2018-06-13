@@ -166,5 +166,5 @@ Prints:
 [2, 2]
 [2, 1, 1]
 [1, 1, 1, 1]
-4 Combinations of 4
+4 Combinations for value: 4
 ```

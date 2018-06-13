@@ -22,7 +22,7 @@ func changePossibilities(amount: Int, denominations: [Int]) -> Int {
 
     let combinations = findCoinCombos(amount: amount, denominations: sortedDenom)
 
-    print("\(combinations) Combinations of \(amount)")
+    print("\(combinations) Combinations for value: \(amount)")
 
     return combinations
 }
