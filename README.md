@@ -1,4 +1,8 @@
 # Spotify TTP Code Challenge
+To TTP: 
+
+Hello from Victor Zhong.
+
 
 ## To run:
 Open each `.playground` file in Xcode.
