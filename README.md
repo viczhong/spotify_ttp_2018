@@ -159,3 +159,12 @@ changePossibilities(amount: 4, denominations: [1, 2, 3]) // returns 4
 
 assert(changePossibilities(amount: 4, denominations: [1, 2, 3]) == 4)
 ```
+
+Prints:
+```
+[3, 1]
+[2, 2]
+[2, 1, 1]
+[1, 1, 1, 1]
+4 Combinations of 4
+```
