@@ -132,7 +132,7 @@ changePossibilities(amount,amount): Your quirky boss collects rare, old coins. T
 
     let combinations = findCoinCombos(amount: amount, denominations: sortedDenom)
 
-    print("\(combinations) Combinations of \(amount)")
+    print("\(combinations) Combinations for value: \(amount)")
 
     return combinations
 }
